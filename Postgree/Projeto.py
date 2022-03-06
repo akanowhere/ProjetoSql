@@ -73,7 +73,6 @@ def importar(self):
     for link in url:
         res = requests.get(link, allow_redirects=True)
         zip = zipfile.ZipFile(io.BytesIO(res.content))
-        print(zip.namelist()[0])
         open(zip.namelist()[0], 'wb').write(res.content)
         zip.extractall()
         conn = psycopg2.connect(database="tutorial",
