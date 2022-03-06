@@ -69,11 +69,10 @@ def criar_tabela(self):
 def importar(self):
     url = ['https://arquivos.prf.gov.br/arquivos/index.php/s/kgJ0ea8QZrix5Yt/download','https://arquivos.prf.gov.br/arquivos/index.php/s/EF4uPKCihT0ouXd/download','https://arquivos.prf.gov.br/arquivos/index.php/s/sdvJndbl5wLyh3J/download','https://arquivos.prf.gov.br/arquivos/index.php/s/hXimwPNR9lyqdMS/download','http://arquivos.prf.gov.br/arquivos/index.php/s/AbbxlG5pYA27WPU/download']
 
-    listaxx = []
+
     for link in url:
         res = requests.get(link, allow_redirects=True)
         zip = zipfile.ZipFile(io.BytesIO(res.content))
-        listaxx.append(zip.namelist())
         print(zip.namelist()[0])
         open(zip.namelist()[0], 'wb').write(res.content)
         zip.extractall()
