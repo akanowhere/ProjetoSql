@@ -18,7 +18,7 @@ def criar_tabela(self):
     cursor = conn.cursor()
     cursor.execute("DROP TABLE IF EXISTS {};".format("ACIDENTES"))
 
-    sql = '''CREATE TABLE ACIDENTES2(
+    sql = '''CREATE TABLE ACIDENTES(
     idpk SERIAL PRIMARY KEY, 
     id varchar(20),\
     pesid varchar(10),\
